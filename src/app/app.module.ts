@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AndInstallPageComponent } from './and-install-page/and-install-page.component';
@@ -22,12 +23,15 @@ import { FileSizePipe } from './file-size.pipe';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'install/ios', component: IosInstallPageComponent },
-      { path: 'install/android', component: AndInstallPageComponent },
-    ]),
+    RouterModule.forRoot(
+      [
+        { path: 'install/ios', component: IosInstallPageComponent },
+        { path: 'install/android', component: AndInstallPageComponent },
+      ],
+      { useHash: true }
+    ),
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
