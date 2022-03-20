@@ -1,0 +1,145 @@
+.install-view {
+  position: relative;
+  padding: 20px;
+  background: #f1f4f9;
+  border-radius: 5px;
+  & > div {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .app-logo {
+    margin: 25px;
+    text-align: center;
+    img {
+      height: 100px;
+    }
+  }
+
+  .app-title {
+    &-logo {
+      height: 24px;
+      margin-right: 15px;
+    }
+    &-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  .app-info {
+    min-height: 62px;
+    span {
+      display: inline-block;
+      text-align: center;
+      padding: 0 5px;
+      font-size: 14px;
+      color: #aaa;
+      border-right: 1px solid #ccc;
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+  .app-qrcode {
+    min-height: 130px;
+    &-img {
+      height: 100px;
+    }
+  }
+  .app-install {
+    &-button {
+      height: 56px;
+      display: flex;
+      border-radius: 24px;
+      text-decoration: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      width: 100%;
+      text-shadow: 1px 1px 1px black;
+      cursor: pointer;
+      background: linear-gradient(113.27deg, #55c2d8 2.49%, #5660bf 91.67%);
+      &:hover {
+        background: linear-gradient(113.27deg, #55c2d8 -20.49%, #5660bf 51.67%);
+      }
+    }
+  }
+
+  .app-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .loadEffect {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      margin-top: 100px;
+      position: relative;
+      & div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        animation: load 2.08s linear infinite;
+      }
+      & div span {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: darkturquoise;
+        position: absolute;
+        left: 50%;
+        margin-top: -10px;
+        margin-left: -10px;
+      }
+      @keyframes load {
+        0% {
+          transform: rotate(0deg);
+        }
+        10% {
+          transform: rotate(45deg);
+        }
+        50% {
+          opacity: 1;
+          transform: rotate(160deg);
+        }
+        62% {
+          opacity: 0;
+        }
+        65% {
+          opacity: 0;
+          transform: rotate(200deg);
+        }
+        90% {
+          transform: rotate(340deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      div:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      div:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      div:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      div:nth-child(4) {
+        animation-delay: 0.8s;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<section class="install-view">
+  <div class="app-logo">
+    <img src="assets/app-logo.png" alt="app-logo" />
+  </div>
+  <div class="app-title">
+    <img
+      *ngIf="platform === 'ios'"
+      class="app-title-logo"
+      src="assets/ios.png"
+      alt=""
+    />
+    <img
+      *ngIf="platform === 'android'"
+      class="app-title-logo"
+      src="assets/android.png"
+      alt=""
+    />
+    <span class="app-title-text"> DrillOps Touch</span>
+  </div>
+  <div class="app-info">
+    <span>
+      Version:{{ releaseInfo?.short_version }} build({{ releaseInfo?.version }})
+    </span>
+    <span>Size: {{ releaseInfo?.size | filesize }}</span>
+    <span>Updated: {{ releaseInfo?.uploaded_at | date: 'short' }}</span>
+  </div>
+  <div class="app-qrcode">
+    <img
+      *ngIf="platform === 'ios'"
+      src="https://www.pgyer.com/app/qrcode/uCBE"
+      class="app-qrcode-img"
+    />
+    <img
+      *ngIf="platform === 'android'"
+      src="https://www.pgyer.com/app/qrcode/OQAL"
+      class="app-qrcode-img"
+    />
+  </div>
+  <div class="app-install">
+    <a class="app-install-button" [href]="releaseInfo?.install_url | safe"
+      >Install</a
+    >
+  </div>
+  <section class="app-loading" *ngIf="!releaseInfo">
+    <div class="loadEffect">
+      <div><span></span></div>
+      <div><span></span></div>
+      <div><span></span></div>
+      <div><span></span></div>
+    </div>
+  </section>
+</section>

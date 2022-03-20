@@ -1,18 +1,33 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AndInstallPageComponent } from './and-install-page/and-install-page.component';
+import { IosInstallPageComponent } from './ios-install-page/ios-install-page.component';
+import { InstallViewComponent } from './install-view/install-view.component';
+import { UrlSafePipe } from './url-safe.pipe';
+import { FileSizePipe } from './file-size.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InstallViewComponent,
+    AndInstallPageComponent,
+    IosInstallPageComponent,
+    UrlSafePipe,
+    FileSizePipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'install/ios', component: IosInstallPageComponent },
+      { path: 'install/android', component: AndInstallPageComponent },
+    ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

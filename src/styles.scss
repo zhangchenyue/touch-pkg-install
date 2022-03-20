@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import './font.scss';
+html {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    sans-serif;
+}
+
+body {
+  background-image: url(./assets/background-slb-2021-rebrand.jpeg);
+  background-position: top;
+}
