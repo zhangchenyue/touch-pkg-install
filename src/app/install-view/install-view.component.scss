@@ -43,12 +43,15 @@
     }
   }
   .app-qrcode {
-    min-height: 130px;
+    padding-top: 10px;
+    padding-bottom: 0;
     &-img {
       height: 100px;
     }
   }
   .app-install {
+    padding-top: 20px;
+    padding-bottom: 0;
     &-button {
       height: 56px;
       display: flex;
